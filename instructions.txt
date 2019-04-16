@@ -1,0 +1,4 @@
+export MLFLOW_TRACKING_URI=databricks://demo
+mlflow experiments create /Users/bernhard.walter@databricks.com/experiments/mlflow-sklearn
+export EXID=2788850
+mlflow run https://github.com/bernhard-42/mlflow-experiments#sklearn -m databricks -c cluster.json --experiment-id=$EXID -P alpha=0.1
