@@ -14,7 +14,7 @@ fi
 echo "experiment: $EXID"
 
 if [[ "$2" == "" ]]; then
-    echo "parmeters alpha and l1_ratio missing"
+    echo "parmeters alpha > 0 and 0.01 <= l1_ratio <= 1 missing"
     exit 1
 fi
 
