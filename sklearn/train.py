@@ -29,17 +29,16 @@ if __name__ == "__main__":
     np.random.seed(40)
 
     # Read the wine-quality csv file (make sure you're running this from the root of MLflow!)
-    wine_path = "/dbfs/FileStore/bernhard/wine-quality.csv"
-    data = pd.read_csv(wine_path)
+    data = pd.read_csv("../data/airbnb-cleaned-mlflow.csv").iloc[3:] 
 
     # Split the data into training and test sets. (0.75, 0.25) split.
     train, test = train_test_split(data)
 
     # The predicted column is "quality" which is a scalar from [3, 9]
-    train_x = train.drop(["quality"], axis=1)
-    test_x = test.drop(["quality"], axis=1)
-    train_y = train[["quality"]]
-    test_y = test[["quality"]]
+    train_x = train.drop(["price"], axis=1)
+    test_x = test.drop(["price"], axis=1)
+    train_y = train[["price"]]
+    test_y = test[["price"]]
 
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
